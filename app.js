@@ -8,19 +8,11 @@ const exphbs = require("express-handlebars");
 app.use(express.static(path.join(__dirname, "public")));
 app.engine("handlebars", exphbs({ defaultLayout: "home" }));
 app.set("view engine", "handlebars");
+//load all those routes
+const main = require("./routes/home/main");
+//plug things in our application, here we use middleware
+app.use("/", main);
 
-app.get("/", (req, res) => {
-  res.render("home/index");
-});
-app.get("/about", (req, res) => {
-  res.render("home/about");
-});
-app.get("/login", (req, res) => {
-  res.render("home/login");
-});
-app.get("/register", (req, res) => {
-  res.render("home/register");
-});
 app.listen(4500, () => {
   console.log(`listen on port 4500`);
 });
