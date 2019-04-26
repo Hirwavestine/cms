@@ -11,4 +11,11 @@ router.all("/*", (req, res, next) => {
 router.get("/", (req, res) => {
   res.render("admin/index");
 });
+//create route for dashbord and create its view in admin called dashboard.handlebars
+router.get("/dashboard", (req, res) => {
+  res.render("admin/dashboard");
+});
+router.get("/charts", (req, res) => {
+  res.render("admin/charts");
+});
 module.exports = router;
