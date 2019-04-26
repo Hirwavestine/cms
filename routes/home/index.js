@@ -1,5 +1,10 @@
 const express = require("express");
 const router = express.Router();
+
+router.all("/*", (req, res, next) => {
+  req.app.locals.layout = "home";
+  next();
+});
 //we change app to router to make our file exported bcse we require it when we do:
 //const main = require("./routes/home/main");
 router.get("/", (req, res) => {
