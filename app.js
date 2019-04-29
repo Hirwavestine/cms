@@ -2,8 +2,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const exphbs = require("express-handlebars");
-//-dirname,"public":I am whatever for there I am or whatever file I am is going
-//to include that way if or basically joined together with the public
+//-dirname,"public":I am whatever for there I am or whatever file I am is going to include that way if or basically joined together with the public
 app.use(express.static(path.join(__dirname, "public")));
 //set view engine
 app.engine("handlebars", exphbs({ defaultLayout: "home" }));
