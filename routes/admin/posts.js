@@ -19,4 +19,7 @@ router.all("/*", (req, res, next) => {
 router.get("/", (req, res) => {
   res.send("It works");
 });
+router.get("/create", (req, res) => {
+  res.render("/admin/posts/create");
+});
 module.exports = router;
