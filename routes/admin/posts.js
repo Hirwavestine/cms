@@ -20,6 +20,6 @@ router.get("/", (req, res) => {
   res.render("admin/posts");
 });
 router.get("/create", (req, res) => {
-  res.render("/admin/posts/create");
+  res.render("admin/posts/create");
 });
 module.exports = router;
