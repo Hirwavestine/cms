@@ -17,9 +17,12 @@ router.all("/*", (req, res, next) => {
   next();
 });
 router.get("/", (req, res) => {
-  res.render("admin/posts");
+  res.send("IT wORKS");
 });
 router.get("/create", (req, res) => {
   res.render("admin/posts/create");
+});
+router.post("/create", (req, res) => {
+  res.send("WORKED");
 });
 module.exports = router;
