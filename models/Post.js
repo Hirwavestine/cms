@@ -3,6 +3,10 @@ const Schema = mongoose.Schema;
 
 const PostSchema = new Schema({
   user: {},
+  title: {
+    type: String,
+    required: true
+  },
 
   status: {
     type: string,
@@ -13,7 +17,8 @@ const PostSchema = new Schema({
     require: true
   },
   body: {
-    type: string,
+    type: String,
     require: true
   }
 });
+module.exports = mongoose.model("posts", PostSchema);
