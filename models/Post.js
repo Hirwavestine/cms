@@ -9,7 +9,7 @@ const PostSchema = new Schema({
   },
 
   status: {
-    type: string,
+    type: String,
     default: "public"
   },
   allowComents: {
