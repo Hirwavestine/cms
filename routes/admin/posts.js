@@ -23,6 +23,6 @@ router.get("/create", (req, res) => {
   res.render("admin/posts/create");
 });
 router.post("/create", (req, res) => {
-  res.send("WORKED");
+  console.log(req.body);
 });
 module.exports = router;
