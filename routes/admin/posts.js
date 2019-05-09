@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const post = require("../../models/Post");
 // const mongoose = require("mongoose");
 
 // mongoose
@@ -23,6 +24,18 @@ router.get("/create", (req, res) => {
   res.render("admin/posts/create");
 });
 router.post("/create", (req, res) => {
-  console.log(req.body);
+  let allowComments = true;
+  if (req.body.allowComments) {
+    allowComments = true;
+  } else {
+    allowComments = false;
+  }
+  post({
+    title: req.body.title,
+    status: req.body.status,
+    allowComments: req.baseUrl.allowComments,
+    body: req.body.body
+  });
+  //console.log(req.body.allowComments);
 });
 module.exports = router;
