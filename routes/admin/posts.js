@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const post = require("../../models/Post");
+const Post = require("../../models/Post");
 // const mongoose = require("mongoose");
 
 // mongoose
@@ -18,7 +18,9 @@ router.all("/*", (req, res, next) => {
   next();
 });
 router.get("/", (req, res) => {
-  res.render("admin/posts");
+  Post.find({}).then(posts => {
+    res.render("admin/posts", { posts: posts });
+  });
 });
 router.get("/create", (req, res) => {
   res.render("admin/posts/create");
@@ -32,7 +34,7 @@ router.post("/create", (req, res) => {
     allowComments = false;
   }
 
-  const newPost = new post({
+  const newPost = new Post({
     title: req.body.title,
     status: req.body.status,
     allowComments: allowComments,
