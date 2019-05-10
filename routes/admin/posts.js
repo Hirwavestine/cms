@@ -18,7 +18,7 @@ router.all("/*", (req, res, next) => {
   next();
 });
 router.get("/", (req, res) => {
-  res.send("IT wORKS");
+  res.render("admin/posts");
 });
 router.get("/create", (req, res) => {
   res.render("admin/posts/create");
