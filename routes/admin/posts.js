@@ -45,6 +45,9 @@ router.post("/create", (req, res) => {
     res.redirect("/admin/posts");
   });
 });
-// console.log(req.body.allowComments);
+//console.log(req.body.allowComments);
+router.get("/edit/:id", (req, res) => {
+  res.render("admin/posts/edit");
+});
 
 module.exports = router;
