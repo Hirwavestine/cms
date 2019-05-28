@@ -45,6 +45,11 @@ router.post("/create", (req, res) => {
     res.redirect("/admin/posts");
   });
 });
-// console.log(req.body.allowComments);
+//console.log(req.body.allowComments);
+router.get("/edit/:id", (req, res) => {
+  Post.findOne({ _id: req.params.id }).then(post => {
+    res.render("admin/posts/edit", { post: post });
+  });
+});
 
 module.exports = router;

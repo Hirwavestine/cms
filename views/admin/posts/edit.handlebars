@@ -1,8 +1,8 @@
-<h1>Create Post</h1>
-<form action="/admin/posts/create" method="POST">
+<h1>Edit Post</h1>
+<form action="/admin/posts/edit" method="POST">
     <div class="form-group">
         <label for="title">Title</label>
-        <input name="title" type="text" class="form-control" id="title" placeholder="Enter title">
+        <input name="title" type="text" class="form-control" id="title" value="{{post.title}}">
 
     </div>
     <div class="form-group">
@@ -14,16 +14,15 @@
         </select>
     </div>
     <div class="form-check">
-        <label for="allowComments" class="form-check-label">
-
-            <input name="allowComments" type="checkbox" class="form-check-input" value="" id="allowComments">
+        <label for="allowComments">
+            <input name="allowComments" type="checkbox" {{#if post.allowComments}} checked="checked" {{/if}} class="form-check-input"
+                id="allowComments">
             Allow comments
         </label>
     </div>
-
     <div class="form-group">
         <label for="body">body</label>
-        <textarea name="body" cols="30" rows="10" type="text" class="form-control" id="body" placeholder="Enter description"></textarea>
+        <textarea name="body" cols="30" rows="10" type="text" class="form-control" id="body">{{post.body}}</textarea>
 
     </div>
     <button type="submit" class="btn btn-primary">SUBMIT</button>
