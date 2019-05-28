@@ -16,7 +16,12 @@ mongoose
 //-dirname,"public":I am whatever for there I am or whatever file I am is going to include that way if or basically joined together with the public
 app.use(express.static(path.join(__dirname, "public")));
 //set view engine
-app.engine("handlebars", exphbs({ defaultLayout: "home" }));
+
+const { select } = require("./helpers/handlebars-helpers");
+app.engine(
+  "handlebars",
+  exphbs({ defaultLayout: "home", helpers: { select: select } })
+);
 app.set("view engine", "handlebars");
 //body Parser
 app.use(bodyParser.urlencoded({ extended: true }));
