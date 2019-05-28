@@ -1,5 +1,7 @@
 module.exports = {
-  select: function(param1) {
-    console.log(param1);
+  select: function(selected, options) {
+    return options
+      .fn(this)
+      .replace(new RegExp('value="' + selected + '"'), '$&selected="selected"');
   }
 };

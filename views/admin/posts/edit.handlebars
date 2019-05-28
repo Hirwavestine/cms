@@ -8,12 +8,14 @@
     <div class="form-group">
         <label for="title">Title</label>
         <select name="status" id="status" class="form-control">
+            {{#select post.status}}
             <option value="public">Public</option>
             <option value="private">Private</option>
             <option value="Draft">Draft</option>
+            {{/select}}
         </select>
     </div>
-    {{#select 'dddddddddd'}}{{/select}}
+
     <div class="form-check">
         <label for="allowComments">
             <input name="allowComments" type="checkbox" {{#if post.allowComments}} checked="checked" {{/if}} class="form-check-input"
